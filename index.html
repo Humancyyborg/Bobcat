@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head content remains the same -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bopcat Memecoin - Launching on Base Chain!">
+  <title>Bopcat Coin - Meme of the Base Chain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #1a21a5;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      color: white;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      z-index: 3;
+      animation: bounce 2s infinite;
+    }
+
+    .social-links {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 3;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    header {
+      padding: 40px 20px;
+      margin-top: 20px;
+    }
+
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 4.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      padding: 0 20px;
+    }
+
+    .cat-container {
+      margin: 70px auto;
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+
+    #popcat {
+      width: 400px;
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    #popcat:hover {
+      transform: scale(1.1);
+    }
+
+    .counter {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .buy-button {
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 15px;
+      font-family: 'Press Start 2P', cursive;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      margin: 30px auto 15px;
+      display: block;
+      width: fit-content;
+      max-width: 90%;
+    }
+
+    .buy-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .contract-address {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.6rem;
+      line-height: 1.8;
+      /* Added to make text appear taller */
+      letter-spacing: 0.05em;
+      /* Added slight letter spacing */
+      margin: 15px auto 30px;
+      padding: 12px 16px;
+      /* Increased padding */
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      width: fit-content;
+      max-width: 90%;
+      word-break: break-all;
+      display: inline-block;
+      /* Changed to inline-block */
+    }
+
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
+
+    .social-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .emoji-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .emoji {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+    }
+
+    @keyframes slowFall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+        padding: 0 10px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .social-links {
+        top: 10px;
+        right: 10px;
+      }
+
+      .social-links a {
+        padding: 8px 16px;
+        font-size: 1rem;
+      }
+
+      #popcat {
+        width: 300px;
+      }
+
+      .counter {
+        font-size: 1.4rem;
+      }
+
+      .buy-button {
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+
+
+
+      .contract-address {
+        font-size: 0.5rem;
+        line-height: 1.8;
+        padding: 10px 14px;
+      }
+    }
+
+    .emoji {
+      width: 48px;
+      height: 48px;
+    }
+
+
+    /* Small Mobile Devices */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      #popcat {
+        width: 250px;
+      }
+
+      .counter {
+        font-size: 1.2rem;
+      }
+
+      .buy-button {
+        padding: 12px 24px;
+        font-size: 16px;
+      }
+
+
+
+      .contract-address {
+        font-size: 0.45rem;
+        line-height: 1.8;
+        padding: 8px 12px;
+      }
+    }
+
+
+    /* Landscape Mode */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .container {
+        padding: 10px;
+      }
+
+      header {
+        padding: 20px 10px;
+        margin-top: 10px;
+      }
+
+      .cat-container {
+        margin: 20px auto;
+      }
+
+      #popcat {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="image/flippedopenhead.png" alt="Bopcat Logo" class="logo">
+
+  <div class="social-links">
+    <a href="https://x.com/BopCatOnBase" target="_blank">Twitter 🐦</a>
+    <a href="https://x.com/BopCatOnBase" target="_blank">Dex 📊</a>
+  </div>
+
+  <div class="emoji-container"></div>
+
+  <div class="container">
+    <header>
+      <h1>Bopcat</h1>
+      <p>The memecoin you didn't know you needed On Base!</p>
+    </header>
+
+    <div class="cat-container">
+      <img id="popcat" src="image/flippedclose.png" alt="Popcat" onclick="popcatClick()">
+      <p class="counter" id="clickCount">Bops: 0</p>
+    </div>
+
+    <button class="buy-button">Buy Bopcat</button>
+    <div class="contract-address">CA: 0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D</div>
+  </div>
+
+  <script>
+    let clickCount = 0;
+    const emojiImages = ['image/bopclose.png', 'image/bopheadclose.png', 'image/bopheadopen.png', 'image/bopopen.png'];
+    const emojiContainer = document.querySelector('.emoji-container');
+
+    function popcatClick() {
+      const audio = new Audio('Pop.mp3');
+      audio.play();
+
+      clickCount++;
+      document.getElementById('clickCount').textContent = `Bops: ${clickCount}`;
+
+      createEmojiWave();
+
+      const img = document.getElementById('popcat');
+      img.src = 'image/flippedopen.png';
+      setTimeout(() => {
+        img.src = 'image/flippedclose.png';
+      }, 100);
+    }
+
+    function createEmojiWave() {
+      for (let wave = 0; wave < 3; wave++) {
+        setTimeout(() => {
+          for (let i = 0; i < 8; i++) {
+            createFallingEmoji(wave);
+          }
+        }, wave * 300);
+      }
+    }
+
+    function createFallingEmoji(wave) {
+      const emoji = document.createElement('img');
+      emoji.className = 'emoji';
+      emoji.src = emojiImages[Math.floor(Math.random() * emojiImages.length)];
+
+      const randomX = Math.random() * window.innerWidth;
+      const duration = 2 + Math.random() * 2;
+
+      emoji.style.left = `${randomX}px`;
+      emoji.style.animation = `slowFall ${duration}s linear forwards`;
+
+      const randomRotation = Math.random() * 360;
+      emoji.style.transform = `rotate(${randomRotation}deg)`;
+
+      emojiContainer.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, duration * 1000);
+    }
+
+    // Prevent zoom on double tap for mobile devices
+    document.addEventListener('touchend', function (event) {
+      event.preventDefault();
+      event.target.click();
+    }, false);
+  </script>
+</body>
+
+</html>
